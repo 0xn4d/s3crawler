@@ -20,6 +20,7 @@ with open(file, 'r') as f:
         lines.append(line.strip())
     
     for domain in lines:
+        print()
         print(f'Testing domain: {domain}')
 
         try:
