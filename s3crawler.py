@@ -3,24 +3,14 @@ import re
 import sys
 import urllib3
 import pyfiglet
-# from pysecuritytrails import SecurityTrails, SecurityTrailsError
-# from dotenv import load_dotenv
-# import os
 
-# load_dotenv()
 urllib3.disable_warnings()
 file = sys.argv[1]
-# SECTRAILS_API_KEY = os.getenv('SECTRAILS_API_KEY') 
-# st = SecurityTrails(SECTRAILS_API_KEY)
-
-# try:
-#     st.ping()
-# except SecurityTrailsError:
-#     print('Ping failed')
-#     sys.exit(1)
 
 initialBanner = pyfiglet.figlet_format('s3crawler')
 print(initialBanner)
+
+response_content_decoded = "" 
 
 with open(file, 'r') as f:
     for domain in f:
