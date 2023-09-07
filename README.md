@@ -2,6 +2,8 @@
 
 This tool was developed to bug hunter and pentesters.
 
+IMPORTANT: You have to use a valid URL link to test in your files, such as: https://example.com/ (yes! with the forward slashes).
+
 ## Instalation
 
 ```git clone https://github.com/daniloalbuqrque/s3crawler```
