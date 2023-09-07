@@ -3,6 +3,7 @@ import re
 import sys
 import urllib3
 import pyfiglet
+import time
 
 urllib3.disable_warnings()
 file = sys.argv[1]
@@ -11,17 +12,23 @@ initialBanner = pyfiglet.figlet_format('s3crawler')
 print(initialBanner)
 
 response_content_decoded = "" 
+lines = []
 
 with open(file, 'r') as f:
-    for domain in f:
+    for line in f:
+        lines.append(line.strip())
+    
+    for domain in lines:
         print(f'Testing domain: {domain}')
 
         try:
             response = requests.get(domain, verify=False)
             response_content = response.content
             response_content_decoded = response_content.decode('utf-8')
+            print(response_content_decoded)
             if response.status_code != 200:
                 print(f'HTTP Status code: {response.status_code}')
+                print()
         except requests.exceptions.RequestException:
             print('This one just timed out.')
 
@@ -55,10 +62,9 @@ with open(file, 'r') as f:
         for pattern in patterns:
             matches.extend(re.findall(pattern, response_content_decoded))
 
-        print()
-        print("Possible Buckets S3 to test:")
-        print()
-        print(matches)
-        print()
-            
-
+    print()
+    print("Possible Buckets S3 to test:")
+    print()
+    print(matches)
+    print()
+    
