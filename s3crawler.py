@@ -13,6 +13,7 @@ print(initialBanner)
 
 response_content_decoded = "" 
 lines = []
+matches = []
 
 with open(file, 'r') as f:
     for line in f:
@@ -55,8 +56,6 @@ with open(file, 'r') as f:
             r"https://[a-z0-9.-]{3,63}\.s3-me-south-1\.amazonaws\.com/",
             r"https://[a-z0-9.-]{3,63}\.s3-af-south-1\.amazonaws\.com/",
         ]
-
-        matches = []
 
         for pattern in patterns:
             matches.extend(re.findall(pattern, response_content_decoded))
