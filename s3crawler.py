@@ -25,7 +25,6 @@ with open(file, 'r') as f:
             response = requests.get(domain, verify=False)
             response_content = response.content
             response_content_decoded = response_content.decode('utf-8')
-            print(response_content_decoded)
             if response.status_code != 200:
                 print(f'HTTP Status code: {response.status_code}')
                 print()
