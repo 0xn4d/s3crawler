@@ -5,7 +5,9 @@ This tool was developed to bug hunter and pentesters.
 ## Instalation
 
 ```git clone https://github.com/daniloalbuqrque/s3crawler```
+
 ```cd s3crawler```
+
 ```pip3 install -r requirements```
 
 ## Usage
