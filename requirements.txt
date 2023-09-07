@@ -3,6 +3,3 @@ re
 sys
 urllib3
 pyfiglet
-os
-dotenv
-pysecuritytrails
