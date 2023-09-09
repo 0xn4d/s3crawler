@@ -26,10 +26,9 @@ with open(file, 'r') as f:
         try:
             response = requests.get(domain, verify=False)
             response_content = response.content
-            response_content_decoded = response_content.decode('utf-8')
+            response_content_decoded = response_content.decode('utf-8', errors='ignore')
             if response.status_code != 200:
                 print(f'HTTP Status code: {response.status_code}')
-                print()
         except requests.exceptions.RequestException:
             print('This one just timed out.')
 
